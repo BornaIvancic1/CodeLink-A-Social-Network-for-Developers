@@ -1,0 +1,87 @@
+﻿@model JAVNI_Modul.Models.PostPost
+
+@{
+    var userId = ViewBag.UserId as string;
+}
+
+<h1 style="margin-top:150px;">Create Post</h1>
+<form id="postForm" class="mt-5">
+    <div class="mb-3">
+        <label for="Title" class="form-label">Title</label>
+        <input type="text" class="form-control" id="Title" name="Title" value="@Model.Title">
+        <span asp-validation-for="Title" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label for="Description" class="form-label">Description</label>
+        <textarea class="form-control" id="Description" name="Description">@Model.Description</textarea>
+        <span asp-validation-for="Description" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label for="PostImage" class="form-label">Post Image</label>
+        <input type="file" class="form-control" id="PostImage" name="PostImage" accept="image/*">
+        <span asp-validation-for="PostImage" class="text-danger"></span>
+    </div>
+
+    <button type="button" id="submitBtn" class="btn btn-primary">Submit</button>
+</form>
+
+<style>
+    input, textarea, button {
+        border-radius: 30px !important;
+    }
+
+    input, textarea {
+        background-color: rgb(255,255,255,0.35) !important;
+        border: none !important;
+    }
+
+    textarea {
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    }
+</style>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+        $('#submitBtn').click(function () {
+            var formData = new FormData();
+            formData.append('UserId', '@userId');
+            formData.append('Title', $('#Title').val());
+            formData.append('Description', $('#Description').val());
+
+            var fileInput = $('#PostImage')[0];
+            if (fileInput.files.length > 0) {
+                var file = fileInput.files[0];
+                var reader = new FileReader();
+                reader.onload = function (event) {
+                   
+                    var base64String = event.target.result.split(',')[1];
+                    formData.append('PostImage', base64String);
+
+                    $.ajax({
+                        type: 'POST',
+                        url: 'https://localhost:7156/api/Post/UserPost',
+                        data: formData,
+                        processData: false,
+                        contentType: false, 
+                        success: function (result) {
+                            alert('Post created successfully!');
+                            window.location.href = '/Post/Index';
+                        },
+                        error: function (xhr, status, error) {
+                            console.error(xhr.responseText);
+                            alert('An error occurred while creating the post.');
+                        }
+                    });
+                };
+                reader.readAsDataURL(file);
+            } else {
+                alert('Please select a file.');
+            }
+        });
+    });
+</script>
+

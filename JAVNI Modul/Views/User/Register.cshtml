@@ -1,0 +1,206 @@
+﻿
+<div class="login-container">
+    <img src="/logo/Logo.png" style="height: 200px; border-radius:100px; margin:30px; box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);" />
+    <a asp-controller="User" asp-action="Login" class="btn btn-secondary mb-3">Already have an account?</a>
+
+
+    
+        <div class="text-danger"></div>
+        <div class="kocka2">
+        <form id="registerForm" method="post" >
+            <div class="mb-3">
+                <label for="firstName" class="form-label">First Name</label>
+                <input type="text" class="form-control" id="firstName"  required>
+            </div>
+            <div class="mb-3">
+                <label for="lastName" class="form-label">Last Name</label>
+                <input type="text" class="form-control" id="lastName"  required>
+            </div>
+            <div class="mb-3">
+                <label for="username" class="form-label">Username</label>
+                <input type="text" class="form-control" id="username"  required>
+            </div>
+            <div class="mb-3">
+                <label for="phoneNumber" class="form-label">Phone Number</label>
+                <input type="number" class="form-control" id="phoneNumber">
+            </div>
+            <div class="mb-3">
+                <label for="profilePic" class="form-label">User Profile Picture</label>
+                <input type="file" class="form-control" id="profilePic" >
+            </div>
+            <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" class="form-control" id="email" >
+            </div>
+            <div class="mb-3">
+                <label for="password" class="form-label">Password</label>
+                <input type="password" class="form-control" id="password" autocomplete="off">
+            </div>
+          
+            <button type="submit" id="RegisterBtn" class="btn btn-primary">Register</button>
+ 
+        </form>
+        </div>
+ 
+</div>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('#profilePic').change(function () {
+            var file = this.files[0];
+            if (file) {
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                
+                    $('#previewImage').attr('src', e.target.result);
+                }
+                reader.readAsDataURL(file);
+            }
+        });
+
+        $('#RegisterBtn').click(function (e) {
+            e.preventDefault(); 
+
+            var formData = new FormData();
+            formData.append('FirstName', $('#firstName').val());
+            formData.append('LastName', $('#lastName').val());
+            formData.append('Username', $('#username').val());
+            formData.append('PhoneNumber', $('#phoneNumber').val());
+            formData.append('Email', $('#email').val());
+            formData.append('PwdHash', $('#password').val());
+
+            var file = $('#profilePic')[0].files[0];
+            if (file) {
+               
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    var base64Image = e.target.result.split(',')[1];
+                    formData.append('UserProfilePictureBase64', base64Image);
+
+                   
+                    $.ajax({
+                        url: 'https://localhost:7156/api/User/register',
+                        type: 'POST',
+                        data: formData,
+                        processData: false,
+                        contentType: false,
+                        success: function (response) {
+                            alert('User Registered!');
+                            window.location.href = '/';
+                        },
+                        error: function (xhr, status, error) {
+                            console.error(xhr);
+                            console.error(status);
+                            console.error(error);
+                            alert('An error occurred. Please check the console for more details.');
+                        }
+                    });
+                }
+                reader.readAsDataURL(file);
+            } else {
+               
+                $.ajax({
+                    url: 'https://localhost:7156/api/User/register',
+                    type: 'POST',
+                    data: formData,
+                    processData: false,
+                    contentType: false,
+                    success: function (response) {
+                        alert(response);
+                        window.location.href = '/';
+                    },
+                    error: function (xhr, status, error) {
+                        console.error(xhr);
+                        console.error(status);
+                        console.error(error);
+                        alert('An error occurred. Please check the console for more details.');
+                    }
+                });
+            }
+        });
+    });
+</script>
+
+
+<style>
+    #RegisterBtn{
+        margin-left:30%
+    }
+    .login-container {
+    margin-top:200px;
+        margin-bottom: 100px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        border: none !important;
+        background: rgba(11, 64, 156, 0.5);
+        border-radius: 100px;
+        box-shadow: 0 0 50px rgba(0, 0, 0, 0.3);
+        color: #fff;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    
+    }
+
+    .kocka2 {
+        box-shadow: 0 0 50px rgba(255, 255, 255, 0.3);
+        height: 700px;
+        background: rgba(11, 64, 156, 0.3);
+        width: 470px;
+        border-radius: 100px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .form-label {
+        color: rgba(255, 206, 99, 0.7);
+        font-size: 17px;
+        font-weight: 600;
+        text-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    }
+
+    .form-control {
+        background: linear-gradient(to left, rgba(255, 206, 99, 0.5), rgba(11, 64, 156, 0.1));
+        color: White;
+        border: none !important;
+        border-radius: 50px;
+        width: 250px;
+    }
+
+    .btn {
+        border-radius: 50px !important;
+      
+    }
+
+    .btn-primary {
+        background-color: rgba(11, 64, 156, 0.3);
+        color: #fff;
+        border: none;
+    }
+
+
+
+        .btn-primary:hover {
+            background-color: green;
+            box-shadow: 0 0 50px green !important;
+        }
+
+    .btn-secondary {
+        background-color: rgba(11, 64, 156, 0.3);
+        color: #fff;
+        border: none;
+    }
+
+
+
+        .btn-secondary:hover {
+            background-color: red;
+            box-shadow: 0 0 50px red !important;
+        }
+
+</style>

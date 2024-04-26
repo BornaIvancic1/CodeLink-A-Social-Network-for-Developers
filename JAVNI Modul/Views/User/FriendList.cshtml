@@ -1,0 +1,159 @@
+﻿<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<div style="display: flex; justify-content: space-between;">
+    <div id="usersList" style="width: 500px; background-color: rgba(11, 64, 156, 0.38); border-radius: 50px; padding: 25px; margin-right: 20px; margin-top: 220px !important;  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);">
+        <h2>Users</h2>
+        <ul class="Osobe">
+            @if (ViewBag.Users != null)
+            {
+                
+                for (int i = 0; i < ViewBag.Users.Count; i++)
+                {
+                    var user = ViewBag.Users[i];
+                 
+                    bool isInFriendsList = false;
+                    if (ViewBag.Friends != null)
+                    {
+                        foreach (var friend in ViewBag.Friends)
+                        {
+                            if (friend.Id == user.Id)
+                            {
+                                isInFriendsList = true;
+                                break;
+                            }
+                        }
+                    }
+                   
+                    if (!isInFriendsList)
+                    {
+                        <li class="user" data-user-id="@user.Id">@user.FirstName @user.LastName <button class="btn btn-primary" onclick="AddFriend(@ViewBag.UserId, @user.Id)">Add Friend</button></li>
+                    }
+                }
+            }
+        </ul>
+    </div>
+
+    <div id="friendsList" style="width: 500px; background-color: rgba(0, 255, 51, 0.25); border-radius: 50px; padding: 25px; margin-right: 20px; margin-top: 220px !important; box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);">
+        <h2>Friends</h2>
+        <ul class="Friend">
+            @if (ViewBag.Friends != null)
+            {
+                foreach (var friend in ViewBag.Friends)
+                {
+                    <li class="user" data-user-id="@friend.Id">@friend.FirstName @friend.LastName <button class="btn btn-primary" onclick="RemoveFriend(@ViewBag.UserId, @friend.Id)">Remove Friend</button></li>
+                }
+            }
+        </ul>
+    </div>
+</div>
+
+
+<script>
+    function AddFriend(userId, friendId) {
+        var loggedInUserId = @ViewBag.UserId; 
+
+        $.ajax({
+            type: "POST",
+            url: "https://localhost:7156/api/Friend/AddFriend",
+            data: { userId: loggedInUserId, friendId: friendId }, 
+            success: function (response) {
+                console.log(response);
+                window.location.href = '/User/FriendList';
+            },
+            error: function (xhr, status, error) {
+                console.error(xhr.responseText);
+            }
+        });
+    }
+
+
+    function RemoveFriend(userId, friendId) {
+        var loggedInUserId = @ViewBag.UserId;
+        $.ajax({
+            type: "DELETE",
+            url: "https://localhost:7156/api/Friend/RemoveFriend",
+            data: { userId: loggedInUserId, friendId: friendId },
+            success: function (response) {
+                console.log(response);
+                window.location.href = '/User/FriendList';
+            },
+            error: function (xhr, status, error) {
+                console.error(xhr.responseText);
+            }
+        });
+    }
+</script>
+
+
+<style>
+    .btn-primary{
+    background-color:rgba(0,0,0,0);
+        border: rgba(0,0,0,0);
+    box-shadow:none !important;
+    text-shadow: 0 0 10px black;
+    color: rgba(255,255,255,0.7);
+    }
+
+        .btn-primary:hover{
+            color:white;
+            background-color: rgba(0,0,0,0);
+            border: rgba(0,0,0,0);
+            box-shadow: none !important;
+            text-shadow: 0 0 10px black;
+        }
+    .user{
+        padding:10px;
+    }
+    h2 {
+        text-align: center !important;
+    }
+
+    .Osobe {
+       
+        list-style-type: none;
+        margin-top: 10px;
+        padding: 20px !important;
+    }
+
+        .Osobe li {
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.17);
+            margin-bottom: 5px;
+            background-color: rgba(11, 64, 156, 0.38);
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between; 
+            border-radius: 20px;
+            margin: 10px;
+            color: #FFCE63 !important;
+            font-weight: 550;
+            font-size: 20px;
+            text-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+           
+        }
+
+    .Friend {
+        list-style-type: none;
+        margin-top: 10px;
+        padding: 20px !important;
+    }
+
+        .Friend li {
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.17);
+            margin-bottom: 5px;
+            background-color: rgba(0, 255, 51, 0.25);
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between; 
+            border-radius: 20px;
+            margin: 10px;
+            color: #474747 !important;
+            font-weight: 550;
+            font-size: 20px;
+            text-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+      
+        }
+
+        
+</style>

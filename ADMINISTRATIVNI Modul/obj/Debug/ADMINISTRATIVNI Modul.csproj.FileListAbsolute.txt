@@ -1,0 +1,11 @@
+C:\Projekti\OICAR\ADMINISTRATIVNI Modul\bin\Debug\ADMINISTRATIVNI Modul.exe.config
+C:\Projekti\OICAR\ADMINISTRATIVNI Modul\bin\Debug\ADMINISTRATIVNI Modul.exe
+C:\Projekti\OICAR\ADMINISTRATIVNI Modul\bin\Debug\ADMINISTRATIVNI Modul.pdb
+C:\Projekti\OICAR\ADMINISTRATIVNI Modul\bin\Debug\System.Web.Cors.dll
+C:\Projekti\OICAR\ADMINISTRATIVNI Modul\obj\Debug\ADMINISTRATIVNI Modul.csproj.AssemblyReference.cache
+C:\Projekti\OICAR\ADMINISTRATIVNI Modul\obj\Debug\ADMINISTRATIVNI_Modul.Properties.Resources.resources
+C:\Projekti\OICAR\ADMINISTRATIVNI Modul\obj\Debug\ADMINISTRATIVNI Modul.csproj.GenerateResource.cache
+C:\Projekti\OICAR\ADMINISTRATIVNI Modul\obj\Debug\ADMINISTRATIVNI Modul.csproj.CoreCompileInputs.cache
+C:\Projekti\OICAR\ADMINISTRATIVNI Modul\obj\Debug\ADMINISTRATIVNI Modul.csproj.CopyComplete
+C:\Projekti\OICAR\ADMINISTRATIVNI Modul\obj\Debug\ADMINISTRATIVNI Modul.exe
+C:\Projekti\OICAR\ADMINISTRATIVNI Modul\obj\Debug\ADMINISTRATIVNI Modul.pdb

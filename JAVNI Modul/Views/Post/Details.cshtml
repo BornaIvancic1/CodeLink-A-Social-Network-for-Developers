@@ -1,0 +1,312 @@
+﻿<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vibrant.js/2.1.0/Vibrant.min.js"></script>
+
+@{
+    ViewData["Title"] = "Post Details Page";
+}
+
+<h2 class="post-header text-center">
+    <span class="float-left">
+        <a href="@Url.Action("Index", "Post")" class="btn btn-danger back">
+            <i class="material-icons Arrow">arrow_back</i>
+        </a>
+    </span>
+</h2>
+
+<div id="post-details-container" class="post-details-container text-center" style="background: linear-gradient(rgba(0, 0, 0, 0.87), rgba(0, 0, 0, 0.87)), url('data:image/png;base64,@Model.PostImage'); background-size: cover; background-position: center; background-repeat: no-repeat;">
+
+    <div class="post-thumbnail">
+     
+        <img id="post-thumbnail-img" src="data:image/png;base64,@Model.PostImage" alt="Post Image" class="img-fluid" />
+
+
+        @if (int.Parse(ViewBag.UserId) == Model.UserId)
+        {
+            <input type="file" id="post-image-file" accept="image/*">
+        }
+
+    </div>
+
+    <dl class="post-info">
+        <dt class="h5 text-blue">Title:</dt>
+        <dd class="h3">
+            @if (int.Parse(ViewBag.UserId) == Model.UserId)
+            {
+                <input type="text" id="post-title"  value="@Model.Title">
+            }
+            else
+            {
+                @Model.Title
+            }
+        </dd>
+
+        <dt class="h5 text-blue">Description:</dt>
+        <dd class="h3">
+            @if (int.Parse(ViewBag.UserId) == Model.UserId)
+            {
+                <input type="text" id="post-description" value="@Model.Description">
+            }
+            else
+            {
+                @Model.Description
+            }
+        </dd>
+
+        <dt class="h5 text-blue">Publishing Date:</dt>
+        <dd class="h3">@Model.PublishingDate</dd>
+
+        <dt class="h5 text-blue">Created By:</dt>
+        <dd class="h3" id="created-by-placeholder">
+           
+        </dd>
+
+    </dl>
+
+    @if (int.Parse(ViewBag.UserId) == Model.UserId)
+    {
+        <button class="btn  update-post">Update Post</button>
+        <button class="btn  delete-post">Delete Post</button>
+    }
+</div>
+
+
+<style>
+    .update-post{
+        border-radius:30px;
+        margin:10px;
+        background-color:blue;
+        color:white;
+        border:none;
+        font-weight:600;
+        box-shadow: 0 0 5px black;
+        transition: box-shadow 0.5s ease;
+    }
+
+        .update-post:hover{
+            box-shadow: 0 0 20px blue;
+        }
+    .delete-post {
+        border-radius:30px;
+        margin:10px;
+        background-color:red;
+        color:white;
+        border:none;
+        font-weight: 600;
+        box-shadow: 0 0 5px black;
+        transition: box-shadow 0.5s ease;
+    }
+
+        .delete-post:hover {
+        box-shadow: 0 0 20px red;
+    }
+
+    .delete-
+    .play {
+        vertical-align: middle;
+        font-size: 55px;
+    }
+
+    .Arrow {
+        vertical-align: middle;
+        font-size: 40px;
+    }
+
+    body {
+        background-color: #0a0a0a;
+        color: white;
+    }
+
+    .post-header {
+        margin-top:150px;
+        color: #0066CC;
+        padding: 20px;
+        margin-bottom: 20px;
+        border-radius: 50px;
+    }
+
+    .post-details-container {
+        background-color: #181818;
+        padding: 40px;
+        border-radius: 50px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+ color:white !important;
+    }
+
+    .post-thumbnail img {
+        max-width: 500px;
+        max-height: 500px;
+        border-radius: 10px;
+        box-shadow: 0 0 90px rgba(255, 255, 0, 0.4);
+        ;
+        transition: box-shadow 0.5s ease;
+    }
+
+    .post-thumbnail:hover img {
+        box-shadow: 0 0 90px yellow;
+    }
+
+    .post-info {
+        margin: 20px 0;
+        color: white;
+    }
+
+        .post-info .text-blue {
+            color: #0066CC;
+        }
+
+    .play-button button {
+        background-color: #0066CC;
+        border-color: #0066CC;
+        border-radius: 50px;
+    }
+
+    .btn-danger {
+        background-color: rgba(0, 0, 0, 0.4);
+        border: none;
+        text-shadow: 0 0 30px rgb(0, 0, 0, 0.9) !important;
+        box-shadow: 0 0 30px rgb(0, 0, 0, 0.9) !important;
+        border-radius: 50px;
+        transition: box-shadow 0.5s ease, text-shadow 0.5s ease;
+    }
+
+        .btn-danger:hover {
+            text-shadow: 0 0 20px red !important;
+            box-shadow: 0 0 30px red !important;
+        }
+
+    .btn-blue {
+        background-color: #0066CC;
+        border: none;
+        text-shadow: 0 0 30px yellow !important;
+        box-shadow: 0 0 30px yellow !important;
+        transition: box-shadow 0.5s ease, text-shadow 0.5s ease;
+    }
+
+        .btn-blue:hover {
+            background-color: #004488;
+            text-shadow: 0 0 40px #004488 !important;
+            box-shadow: 0 0 50px #004488 !important;
+        }
+
+    input {
+        background-color: rgb(255,255,255,0.8) !important;
+        border: none !important;
+        padding:10px;
+      margin:10px;
+        font-size:20px;
+    }
+
+</style>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<script>
+
+    $(document).ready(function () {
+        var userId = @ViewBag.UserId;
+
+        $.ajax({
+            type: "GET",
+            url: "https://localhost:7156/api/User/" + userId,
+            success: function (response) {
+                $('#created-by-placeholder').text(response.firstName + ' ' + response.lastName);
+            },
+            error: function (xhr, status, error) {
+                console.error(xhr.responseText);
+            }
+        });
+    });
+
+
+
+
+    $('.update-post').click(function () {
+        var formData = new FormData();
+        var postId = '@Model.Id';
+        var title = encodeURIComponent($('#post-title').val());
+        var description = encodeURIComponent($('#post-description').val());
+
+        formData.append('Id', postId);
+        formData.append('title', title);
+        formData.append('description', description);
+
+        var fileInput = $('#post-image-file')[0];
+        if (fileInput.files.length > 0) {
+            var file = fileInput.files[0];
+            var reader = new FileReader();
+            reader.onload = function (event) {
+
+                var base64String = event.target.result.split(',')[1];
+                formData.append('PostImage', base64String);
+
+            
+                $.ajax({
+                    url: 'https://localhost:7156/api/Post/UserPostUpdate',
+                    type: 'PUT',
+                    processData: false,
+                    contentType: false,
+                    data: formData,
+                    success: function () {
+                        alert('Post updated successfully.');
+                        window.location.href = '/Post/Index';
+                    },
+                    error: function (xhr, status, error) {
+                        console.error('Error:', error);
+                        console.error('Status:', status);
+                        console.error('Response Text:', xhr.responseText);
+                        alert('Error occurred while processing your request. Please try again later.');
+                    }
+                });
+            }
+            reader.readAsDataURL(file); 
+        } else {
+            formData.append('PostImage', 'None');
+          
+            $.ajax({
+                url: 'https://localhost:7156/api/Post/UserPostUpdate',
+                type: 'PUT',
+                processData: false,
+                contentType: false,
+                data: formData,
+                success: function () {
+                    alert('Post updated successfully.');
+                    window.location.href = '/Post/Index';
+                },
+                error: function (xhr, status, error) {
+                    console.error('Error:', error);
+                    console.error('Status:', status);
+                    console.error('Response Text:', xhr.responseText);
+                    alert('Error occurred while processing your request. Please try again later.');
+                }
+            });
+        }
+    });
+
+  
+
+    $('.delete-post').click(function () {
+        var postId = '@Model.Id';
+
+        $.ajax({
+            url: 'https://localhost:7156/api/Post/' + postId,
+            type: 'DELETE',
+            success: function () {
+                alert('Post deleted successfully.');
+                window.location.href = '/Post/Index';
+            },
+            error: function (xhr, status, error) {
+             
+                console.error('Error:', error);
+                console.error('Status:', status);
+                console.error('Response Text:', xhr.responseText);
+
+          
+                alert('Error occurred while processing your request. Please try again later.');
+            }
+
+        });
+    });
+</script>
+
