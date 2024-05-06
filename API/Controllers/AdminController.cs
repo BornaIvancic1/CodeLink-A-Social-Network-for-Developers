@@ -144,5 +144,22 @@ namespace API.Controllers
         {
             return _dbContext.Admin.Any(e => e.Id == id);
         }
+
+        [HttpGet("login/{email}/{password}")]
+        public async Task<ActionResult<Admin>> Login(string email, string password)
+        {
+            var admin = await _dbContext.Admin.FirstOrDefaultAsync(u => u.Email == email);
+            if (admin == null)
+            {
+                return NotFound("Admin not found.");
+            }
+
+            if (!Encryption.ValidatePassword(password, admin.PwdSalt, admin.PwdHash))
+            {
+                return Unauthorized("Invalid email or password.");
+            }
+
+            return Ok(admin);
+        }
     }
 }

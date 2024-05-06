@@ -74,6 +74,32 @@ namespace API.Controllers
             return CreatedAtAction(nameof(GetPost), new { id = newPost.Id }, newPost);
         }
 
+        [HttpPost("AdminPost")]
+        public async Task<ActionResult<Post>> PostPostAdmin([FromForm] PostPostAdmin postPost)
+        {
+            Post newPost;
+            if (postPost.AdminId != null)
+            {
+                newPost = new Post
+                {
+                    AdminId = postPost.AdminId,
+                    PostImage = postPost.PostImage,
+                    PublishingDate = DateTime.Now,
+                    Title = postPost.Title,
+                    Description = postPost.Description
+                };
+            }
+            else
+            {
+                return BadRequest("UserId or AdminId must be provided.");
+            }
+
+            _dbContext.Post.Add(newPost);
+            await _dbContext.SaveChangesAsync();
+
+            return CreatedAtAction(nameof(GetPost), new { id = newPost.Id }, newPost);
+        }
+
         [HttpPut("UserPostUpdate")]
         public async Task<ActionResult<Post>> PutPost([FromForm] PutPost postPost)
         {
@@ -112,7 +138,41 @@ namespace API.Controllers
             return NoContent();
         }
 
-       
+        [HttpPut("AdminPostUpdate")]
+        public async Task<ActionResult<Post>> PutAdminPost([FromForm] PutAdminPost postAdminPost)
+        {
+            var existingPost = await _dbContext.Post.FindAsync(postAdminPost.Id);
+
+            if (existingPost == null)
+            {
+                return NotFound("Post not found.");
+            }
+
+            existingPost.PostImage = postAdminPost.PostImage;
+            existingPost.PublishingDate = DateTime.Now;
+            existingPost.Title = postAdminPost.Title;
+            existingPost.Description = postAdminPost.Description;
+            existingPost.AdminId = postAdminPost.AdminId;
+
+            try
+            {
+                await _dbContext.SaveChangesAsync();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!PostExists(postAdminPost.Id))
+                {
+                    return NotFound("Post not found.");
+                }
+                else
+                {
+                    throw;
+                }
+            }
+
+            return NoContent();
+        }
+
         [HttpDelete("{id}")]
         public async Task<ActionResult<Post>> DeletePost(int id)
         {
