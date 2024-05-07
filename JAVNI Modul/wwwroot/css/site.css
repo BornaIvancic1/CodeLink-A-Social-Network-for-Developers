@@ -86,14 +86,13 @@ body td, body tr {
     width: 100%;
     z-index: 10;
     border: none !important;
-    
     border-bottom-left-radius: 80%;
-    border-bottom-right-radius:30%;
+    border-bottom-right-radius: 30%;
     background-color: rgba(11, 64, 156, 0.8) !important;
     animation-duration: 0.4s;
     animation-name: animate-pop;
     animation-timing-function: cubic-bezier(.26, .53, .74, 1);
-   box-shadow:0 0 200px #FFCE63 !important;
+    box-shadow: 0 0 200px #FFCE63 !important;
     text-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
 }
 

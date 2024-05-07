@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Re0QNB/apqguFFW7HAPyPtrJCf1hKP2ZIm1KezHv01NFlgc8HcH5boQuVrV05OHPshyqLq6Wm4cdljJ5jjE6ug==",
+  "dgSpecHash": "L74+1kDO3iKRNx3cziAkKRdJR1rLlX2f1cAy4v4niO2TB1468p3Ggqwks0vHEwDBGuo+1ZhDQsTJkF/2ttyoNQ==",
   "success": true,
-  "projectFilePath": "C:\\Projekti\\OICAR\\JAVNI Modul\\JAVNI Modul.csproj",
+  "projectFilePath": "C:\\Users\\borna\\Source\\Repos\\CodeLink-A-Social-Network-for-Developers\\JAVNI Modul\\JAVNI Modul.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\borna\\.nuget\\packages\\microsoft.aspnet.cors\\5.3.0\\microsoft.aspnet.cors.5.3.0.nupkg.sha512"
   ],

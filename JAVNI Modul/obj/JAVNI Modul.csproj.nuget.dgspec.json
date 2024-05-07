@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Projekti\\OICAR\\JAVNI Modul\\JAVNI Modul.csproj": {}
+    "C:\\Users\\borna\\Source\\Repos\\CodeLink-A-Social-Network-for-Developers\\JAVNI Modul\\JAVNI Modul.csproj": {}
   },
   "projects": {
-    "C:\\Projekti\\OICAR\\JAVNI Modul\\JAVNI Modul.csproj": {
+    "C:\\Users\\borna\\Source\\Repos\\CodeLink-A-Social-Network-for-Developers\\JAVNI Modul\\JAVNI Modul.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Projekti\\OICAR\\JAVNI Modul\\JAVNI Modul.csproj",
+        "projectUniqueName": "C:\\Users\\borna\\Source\\Repos\\CodeLink-A-Social-Network-for-Developers\\JAVNI Modul\\JAVNI Modul.csproj",
         "projectName": "JAVNI Modul",
-        "projectPath": "C:\\Projekti\\OICAR\\JAVNI Modul\\JAVNI Modul.csproj",
+        "projectPath": "C:\\Users\\borna\\Source\\Repos\\CodeLink-A-Social-Network-for-Developers\\JAVNI Modul\\JAVNI Modul.csproj",
         "packagesPath": "C:\\Users\\borna\\.nuget\\packages\\",
-        "outputPath": "C:\\Projekti\\OICAR\\JAVNI Modul\\obj\\",
+        "outputPath": "C:\\Users\\borna\\Source\\Repos\\CodeLink-A-Social-Network-for-Developers\\JAVNI Modul\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\borna\\AppData\\Roaming\\NuGet\\NuGet.Config",
