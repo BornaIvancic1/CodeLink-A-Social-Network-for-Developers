@@ -65,3 +65,37 @@ C:\Users\borna\Source\Repos\CodeLink-A-Social-Network-for-Developers\JAVNI Modul
 C:\Users\borna\Source\Repos\CodeLink-A-Social-Network-for-Developers\JAVNI Modul\obj\Debug\net8.0\JAVNI Modul.pdb
 C:\Users\borna\Source\Repos\CodeLink-A-Social-Network-for-Developers\JAVNI Modul\obj\Debug\net8.0\JAVNI Modul.genruntimeconfig.cache
 C:\Users\borna\Source\Repos\CodeLink-A-Social-Network-for-Developers\JAVNI Modul\obj\Debug\net8.0\ref\JAVNI Modul.dll
+C:\Projekti\OICAR GITV\JAVNI Modul\bin\Debug\net8.0\appsettings.Development.json
+C:\Projekti\OICAR GITV\JAVNI Modul\bin\Debug\net8.0\appsettings.json
+C:\Projekti\OICAR GITV\JAVNI Modul\bin\Debug\net8.0\JAVNI Modul.staticwebassets.runtime.json
+C:\Projekti\OICAR GITV\JAVNI Modul\bin\Debug\net8.0\JAVNI Modul.exe
+C:\Projekti\OICAR GITV\JAVNI Modul\bin\Debug\net8.0\JAVNI Modul.deps.json
+C:\Projekti\OICAR GITV\JAVNI Modul\bin\Debug\net8.0\JAVNI Modul.runtimeconfig.json
+C:\Projekti\OICAR GITV\JAVNI Modul\bin\Debug\net8.0\JAVNI Modul.dll
+C:\Projekti\OICAR GITV\JAVNI Modul\bin\Debug\net8.0\JAVNI Modul.pdb
+C:\Projekti\OICAR GITV\JAVNI Modul\bin\Debug\net8.0\System.Web.Cors.dll
+C:\Projekti\OICAR GITV\JAVNI Modul\obj\Debug\net8.0\JAVNI Modul.csproj.AssemblyReference.cache
+C:\Projekti\OICAR GITV\JAVNI Modul\obj\Debug\net8.0\JAVNI Modul.GeneratedMSBuildEditorConfig.editorconfig
+C:\Projekti\OICAR GITV\JAVNI Modul\obj\Debug\net8.0\JAVNI Modul.AssemblyInfoInputs.cache
+C:\Projekti\OICAR GITV\JAVNI Modul\obj\Debug\net8.0\JAVNI Modul.AssemblyInfo.cs
+C:\Projekti\OICAR GITV\JAVNI Modul\obj\Debug\net8.0\JAVNI Modul.csproj.CoreCompileInputs.cache
+C:\Projekti\OICAR GITV\JAVNI Modul\obj\Debug\net8.0\JAVNI Modul.MvcApplicationPartsAssemblyInfo.cache
+C:\Projekti\OICAR GITV\JAVNI Modul\obj\Debug\net8.0\JAVNI Modul.RazorAssemblyInfo.cache
+C:\Projekti\OICAR GITV\JAVNI Modul\obj\Debug\net8.0\JAVNI Modul.RazorAssemblyInfo.cs
+C:\Projekti\OICAR GITV\JAVNI Modul\obj\Debug\net8.0\JAVNI Modul.sourcelink.json
+C:\Projekti\OICAR GITV\JAVNI Modul\obj\Debug\net8.0\staticwebassets.build.json
+C:\Projekti\OICAR GITV\JAVNI Modul\obj\Debug\net8.0\staticwebassets.development.json
+C:\Projekti\OICAR GITV\JAVNI Modul\obj\Debug\net8.0\staticwebassets\msbuild.JAVNI Modul.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Projekti\OICAR GITV\JAVNI Modul\obj\Debug\net8.0\staticwebassets\msbuild.build.JAVNI Modul.props
+C:\Projekti\OICAR GITV\JAVNI Modul\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.JAVNI Modul.props
+C:\Projekti\OICAR GITV\JAVNI Modul\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.JAVNI Modul.props
+C:\Projekti\OICAR GITV\JAVNI Modul\obj\Debug\net8.0\staticwebassets.pack.json
+C:\Projekti\OICAR GITV\JAVNI Modul\obj\Debug\net8.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
+C:\Projekti\OICAR GITV\JAVNI Modul\obj\Debug\net8.0\scopedcss\bundle\JAVNI Modul.styles.css
+C:\Projekti\OICAR GITV\JAVNI Modul\obj\Debug\net8.0\scopedcss\projectbundle\JAVNI Modul.bundle.scp.css
+C:\Projekti\OICAR GITV\JAVNI Modul\obj\Debug\net8.0\JAVNI Modul.csproj.CopyComplete
+C:\Projekti\OICAR GITV\JAVNI Modul\obj\Debug\net8.0\JAVNI Modul.dll
+C:\Projekti\OICAR GITV\JAVNI Modul\obj\Debug\net8.0\refint\JAVNI Modul.dll
+C:\Projekti\OICAR GITV\JAVNI Modul\obj\Debug\net8.0\JAVNI Modul.pdb
+C:\Projekti\OICAR GITV\JAVNI Modul\obj\Debug\net8.0\JAVNI Modul.genruntimeconfig.cache
+C:\Projekti\OICAR GITV\JAVNI Modul\obj\Debug\net8.0\ref\JAVNI Modul.dll
