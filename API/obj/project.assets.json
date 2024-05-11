@@ -4432,11 +4432,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\borna\\Source\\Repos\\CodeLink-A-Social-Network-for-Developers\\API\\API.csproj",
+      "projectUniqueName": "C:\\Projekti\\OICAR GITV\\API\\API.csproj",
       "projectName": "API",
-      "projectPath": "C:\\Users\\borna\\Source\\Repos\\CodeLink-A-Social-Network-for-Developers\\API\\API.csproj",
+      "projectPath": "C:\\Projekti\\OICAR GITV\\API\\API.csproj",
       "packagesPath": "C:\\Users\\borna\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\borna\\Source\\Repos\\CodeLink-A-Social-Network-for-Developers\\API\\obj\\",
+      "outputPath": "C:\\Projekti\\OICAR GITV\\API\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\borna\\AppData\\Roaming\\NuGet\\NuGet.Config",

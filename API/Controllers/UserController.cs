@@ -168,8 +168,18 @@ namespace API.Controllers
                 return NotFound();
             }
 
-      
-            user.KnownTechnologies.Clear();
+            if (user.KnownTechnologies != null)
+            {
+                user.KnownTechnologies.Clear();
+            }
+            var postsToDelete = _dbContext.Post.Where(p => p.UserId == id);
+            _dbContext.Post.RemoveRange(postsToDelete);
+
+            var messagesToDeleteReceiver = _dbContext.Message.Where(m => m.ReceiverId == id);
+            _dbContext.Message.RemoveRange(messagesToDeleteReceiver);
+
+            var messagesToDeleteSender = _dbContext.Message.Where(m => m.SenderId == id);
+            _dbContext.Message.RemoveRange(messagesToDeleteSender);
 
             _dbContext.User.Remove(user);
             await _dbContext.SaveChangesAsync();

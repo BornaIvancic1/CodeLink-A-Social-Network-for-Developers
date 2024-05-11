@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "4TfyVNS0JBsSPNpPsT7ILxXvZb6/Bdc0cX/d97Bexdrzb4w1nZip88sxzP2KjaYcX9RzQDyB2PUIytwgGqbpUg==",
+  "dgSpecHash": "sJR/5p6gKolid6ZHU+kOIBQ7OIJsMO4Kp5mIzM9NzgcRnic7KLBL9uaL5MHejhwBt4LlO5+GluR92UwG2pensA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\borna\\Source\\Repos\\CodeLink-A-Social-Network-for-Developers\\API\\API.csproj",
+  "projectFilePath": "C:\\Projekti\\OICAR GITV\\API\\API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\borna\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\borna\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",

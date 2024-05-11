@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("JAVNI Modul")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c8109f425bbf3704de778ae65a5f3520f67db661")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
 [assembly: System.Reflection.AssemblyProductAttribute("JAVNI Modul")]
 [assembly: System.Reflection.AssemblyTitleAttribute("JAVNI Modul")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
