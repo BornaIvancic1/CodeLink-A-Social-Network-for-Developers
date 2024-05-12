@@ -61,7 +61,7 @@ namespace ADMINISTRATIVNI_Modul.Dal
             return userFormat;
         }
 
-        public async Task CreateAdminAsync(User user)
+        public async Task<bool> CreateAdminAsync(User user)
         {
             Admin admin = ConvertToAdminFromUser(user);
             
@@ -82,14 +82,16 @@ namespace ADMINISTRATIVNI_Modul.Dal
                 var content = new StringContent(userJson, Encoding.UTF8, "application/json");
                 var response = await client.PostAsync("Admin", content);
                 response.EnsureSuccessStatusCode();
+                return response.IsSuccessStatusCode;
             }
             catch (Exception)
             {
                 // No need to worry
+                return false;
             }
         }
 
-        public async Task UpdateAdminAsync(User user)
+        public async Task<bool> UpdateAdminAsync(User user)
         {
             Admin admin = ConvertToAdminFromUser(user);
 
@@ -110,23 +112,27 @@ namespace ADMINISTRATIVNI_Modul.Dal
                 var content = new StringContent(userJson, Encoding.UTF8, "application/json");
                 var response = await client.PutAsync($"Admin/{admin.Id}", content);
                 response.EnsureSuccessStatusCode();
+                return response.IsSuccessStatusCode;
             }
             catch (Exception)
             {
                 // All good here
+                return false;
             }
         }
 
-        public async Task DeleteAdminAsync(int adminId)
+        public async Task<bool> DeleteAdminAsync(int adminId)
         {
             try
             {
                 var response = await client.DeleteAsync($"Admin/{adminId}");
                 response.EnsureSuccessStatusCode();
+                return response.IsSuccessStatusCode;
             }
             catch (Exception)
             {
                 // Stay Calm and forget it ever happend
+                return false;
             }
         }
 

@@ -102,11 +102,27 @@ namespace ADMINISTRATIVNI_Modul
                 {
                     if (edit)
                     {
-                        await repoFactory.adminRepository.UpdateAdminAsync(user);
+                        if (await repoFactory.adminRepository.UpdateAdminAsync(user))
+                        {
+                            MessageBox.Show("Action was successful", "Success", MessageBoxButtons.OK);
+                            this.Close();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Action was not successful, try again later.", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
                     }
                     else
                     {
-                        await repoFactory.adminRepository.CreateAdminAsync(user);
+                        if (await repoFactory.adminRepository.CreateAdminAsync(user))
+                        {
+                            MessageBox.Show("Action was successful", "Success", MessageBoxButtons.OK);
+                            this.Close();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Action was not successful, try again later.", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
                     }
                 } 
             }
@@ -114,11 +130,29 @@ namespace ADMINISTRATIVNI_Modul
             {
                 if (edit)
                 {
-                    await repoFactory.userRepository.UpdateUserAsync(user);
+                    bool success = await repoFactory.userRepository.UpdateUserAsync(user);
+                    
+                    if (success)
+                    {
+                        MessageBox.Show("Action was successful", "Success", MessageBoxButtons.OK);
+                        this.Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Action was not successful, try again later.", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
                 else
                 {
-                    await repoFactory.userRepository.CreateUserAsync(user);
+                    if (await repoFactory.userRepository.CreateUserAsync(user))
+                    {
+                        MessageBox.Show("Action was successful", "Success", MessageBoxButtons.OK);
+                        this.Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Action was not successful, try again later.", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
             }
 

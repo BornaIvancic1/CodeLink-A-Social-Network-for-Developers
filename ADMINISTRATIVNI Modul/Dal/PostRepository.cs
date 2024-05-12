@@ -63,7 +63,7 @@ namespace ADMINISTRATIVNI_Modul.Dal
             return postItem;
         }
 
-        public async Task CreatePostAsync(Post post)
+        public async Task<bool> CreatePostAsync(Post post)
         {
             try
             {
@@ -76,14 +76,16 @@ namespace ADMINISTRATIVNI_Modul.Dal
 
                 var response = await client.PostAsync("Post/AdminPost", formData);
                 response.EnsureSuccessStatusCode();
+                return response.IsSuccessStatusCode;
             }
             catch (Exception)
             {
                 // No need to worry
+                return false;
             }
         }
 
-        public async Task UpdatePostAsync(Post post)
+        public async Task<bool> UpdatePostAsync(Post post)
         {
             try
             {
@@ -97,24 +99,28 @@ namespace ADMINISTRATIVNI_Modul.Dal
 
                 var response = await client.PutAsync($"Post/AdminPostUpdate", formData);
                 response.EnsureSuccessStatusCode();
-
+                return response.IsSuccessStatusCode;
             }
             catch (Exception)
             {
                 // All good here
+                return false;
             }
+            
         }
 
-        public async Task DeletePostAsync(int postId)
+        public async Task<bool> DeletePostAsync(int postId)
         {
             try
             {
                 var response = await client.DeleteAsync($"Post/{postId}");
                 response.EnsureSuccessStatusCode();
+                return response.IsSuccessStatusCode;
             }
             catch (Exception)
             {
                 // Stay Calm and forget it ever happend
+                return false;
             }
         }
 

@@ -33,6 +33,7 @@
             this.flp_Post_Container = new System.Windows.Forms.FlowLayoutPanel();
             this.tlp_Buttons_Container1 = new System.Windows.Forms.TableLayoutPanel();
             this.flp_Buttons_Container1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.btn_refresh = new System.Windows.Forms.Button();
             this.btn_NewPost = new System.Windows.Forms.Button();
             this.btn_EditPost = new System.Windows.Forms.Button();
             this.btn_DeletePost = new System.Windows.Forms.Button();
@@ -40,6 +41,7 @@
             this.flp_User_Container = new System.Windows.Forms.FlowLayoutPanel();
             this.tlp_Buttons_Container2 = new System.Windows.Forms.TableLayoutPanel();
             this.flp_Buttons_Container2 = new System.Windows.Forms.FlowLayoutPanel();
+            this.btn_refresh1 = new System.Windows.Forms.Button();
             this.btn_CreateUser = new System.Windows.Forms.Button();
             this.btn_EditUser = new System.Windows.Forms.Button();
             this.btn_DeleteUser = new System.Windows.Forms.Button();
@@ -57,8 +59,6 @@
             this.lbl_Lastname = new System.Windows.Forms.Label();
             this.lbl_FirstName = new System.Windows.Forms.Label();
             this.pb_Picture = new System.Windows.Forms.PictureBox();
-            this.btn_refresh = new System.Windows.Forms.Button();
-            this.btn_refresh1 = new System.Windows.Forms.Button();
             this.tab_Control.SuspendLayout();
             this.tp_Blogs.SuspendLayout();
             this.tlp_Buttons_Container1.SuspendLayout();
@@ -135,6 +135,16 @@
             this.flp_Buttons_Container1.Size = new System.Drawing.Size(744, 40);
             this.flp_Buttons_Container1.TabIndex = 0;
             // 
+            // btn_refresh
+            // 
+            this.btn_refresh.Location = new System.Drawing.Point(3, 3);
+            this.btn_refresh.Name = "btn_refresh";
+            this.btn_refresh.Size = new System.Drawing.Size(180, 33);
+            this.btn_refresh.TabIndex = 3;
+            this.btn_refresh.Text = "Refresh";
+            this.btn_refresh.UseVisualStyleBackColor = true;
+            this.btn_refresh.Click += new System.EventHandler(this.btn_refreshposts_Click);
+            // 
             // btn_NewPost
             // 
             this.btn_NewPost.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -199,7 +209,7 @@
             this.tlp_Buttons_Container2.Name = "tlp_Buttons_Container2";
             this.tlp_Buttons_Container2.RowCount = 1;
             this.tlp_Buttons_Container2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tlp_Buttons_Container2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tlp_Buttons_Container2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 46F));
             this.tlp_Buttons_Container2.Size = new System.Drawing.Size(1174, 46);
             this.tlp_Buttons_Container2.TabIndex = 5;
             // 
@@ -215,6 +225,16 @@
             this.flp_Buttons_Container2.Name = "flp_Buttons_Container2";
             this.flp_Buttons_Container2.Size = new System.Drawing.Size(744, 40);
             this.flp_Buttons_Container2.TabIndex = 0;
+            // 
+            // btn_refresh1
+            // 
+            this.btn_refresh1.Location = new System.Drawing.Point(3, 3);
+            this.btn_refresh1.Name = "btn_refresh1";
+            this.btn_refresh1.Size = new System.Drawing.Size(180, 33);
+            this.btn_refresh1.TabIndex = 4;
+            this.btn_refresh1.Text = "Refresh";
+            this.btn_refresh1.UseVisualStyleBackColor = true;
+            this.btn_refresh1.Click += new System.EventHandler(this.btn_refreshusers_Click);
             // 
             // btn_CreateUser
             // 
@@ -399,26 +419,6 @@
             this.pb_Picture.TabIndex = 41;
             this.pb_Picture.TabStop = false;
             // 
-            // btn_refresh
-            // 
-            this.btn_refresh.Location = new System.Drawing.Point(3, 3);
-            this.btn_refresh.Name = "btn_refresh";
-            this.btn_refresh.Size = new System.Drawing.Size(180, 33);
-            this.btn_refresh.TabIndex = 3;
-            this.btn_refresh.Text = "Refresh";
-            this.btn_refresh.UseVisualStyleBackColor = true;
-            this.btn_refresh.Click += new System.EventHandler(this.btn_refreshposts_Click);
-            // 
-            // btn_refresh1
-            // 
-            this.btn_refresh1.Location = new System.Drawing.Point(3, 3);
-            this.btn_refresh1.Name = "btn_refresh1";
-            this.btn_refresh1.Size = new System.Drawing.Size(180, 33);
-            this.btn_refresh1.TabIndex = 4;
-            this.btn_refresh1.Text = "Refresh";
-            this.btn_refresh1.UseVisualStyleBackColor = true;
-            this.btn_refresh1.Click += new System.EventHandler(this.btn_refreshusers_Click);
-            // 
             // MainMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -428,6 +428,7 @@
             this.Name = "MainMenu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CodeLink Admin";
+            this.Activated += new System.EventHandler(this.MainMenu_Activated);
             this.Load += new System.EventHandler(this.MainMenu_Load);
             this.tab_Control.ResumeLayout(false);
             this.tp_Blogs.ResumeLayout(false);

@@ -266,5 +266,16 @@ namespace ADMINISTRATIVNI_Modul
             }
         }
 
+        private void MainMenu_Activated(object sender, EventArgs e)
+        {
+            if (tab_Control.SelectedIndex==0) 
+            {
+                GetPosts();
+            }
+            else if (tab_Control.SelectedIndex == 1)
+            {
+                GetUsers();
+            }
+        }
     }
 }

@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
+using System.Runtime.InteropServices.WindowsRuntime;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
@@ -59,7 +60,7 @@ namespace ADMINISTRATIVNI_Modul.Dal
             return user;
         }
 
-        public async Task CreateUserAsync(User user)
+        public async Task<bool> CreateUserAsync(User user)
         {
             try
             {
@@ -79,15 +80,17 @@ namespace ADMINISTRATIVNI_Modul.Dal
                 var content = new StringContent(userJson, Encoding.UTF8, "application/json");
                 var response = await client.PostAsync("User", content);
                 response.EnsureSuccessStatusCode();
+                return response.IsSuccessStatusCode;
             }
             catch (Exception)
             {
                 // No need to worry
+                return false;
             }
 
         }
 
-        public async Task UpdateUserAsync(User user)
+        public async Task<bool> UpdateUserAsync(User user)
         {
             try
             {
@@ -107,23 +110,28 @@ namespace ADMINISTRATIVNI_Modul.Dal
                 var content = new StringContent(userJson, Encoding.UTF8, "application/json");
                 var response = await client.PutAsync($"User/{user.Id}", content);
                 response.EnsureSuccessStatusCode();
+                return response.IsSuccessStatusCode;
             }
             catch (Exception)
             {
                 // All good here
+                return false;
             }
         }
 
-        public async Task DeleteUserAsync(int userId)
+        public async Task<bool> DeleteUserAsync(int userId)
         {
             try
             {
                 var response = await client.DeleteAsync($"User/{userId}");
                 response.EnsureSuccessStatusCode();
+
+                return response.IsSuccessStatusCode;
             }
             catch (Exception)
             {
                 // Stay Calm and forget it ever happend
+                return false;
             }
         }
 

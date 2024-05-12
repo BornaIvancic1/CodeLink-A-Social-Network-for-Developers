@@ -90,11 +90,28 @@ namespace ADMINISTRATIVNI_Modul
 
             if (edit) 
             {
-                await repoFactory.postRepository.UpdatePostAsync(post);
+                if (await repoFactory.postRepository.UpdatePostAsync(post))
+                {
+                    MessageBox.Show("Action was successful", "Success", MessageBoxButtons.OK);
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Action was not successful, try again later.", "Failed", MessageBoxButtons.OK,MessageBoxIcon.Error);
+                }
+
             }
             else 
             {
-                await repoFactory.postRepository.CreatePostAsync(post);
+                if (await repoFactory.postRepository.CreatePostAsync(post))
+                {
+                    MessageBox.Show("Action was successful", "Success", MessageBoxButtons.OK);
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Action was not successful, try again later.", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
 
         }
