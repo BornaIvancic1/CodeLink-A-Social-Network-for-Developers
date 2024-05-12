@@ -49,16 +49,13 @@ namespace ADMINISTRATIVNI_Modul
             switch ((sender as TabControl).SelectedIndex)
             {
                 case 0: //Posts
-                    selectedUser = -1;
+                    
                     GetPosts();
                     break;
                 case 1: //Users
-                    selectedPost = -1;
                     GetUsers();
                     break;
                 case 2: //Me
-                    selectedUser = -1;
-                    selectedPost = -1;
                     FillData();
                     break;
             }
@@ -83,6 +80,7 @@ namespace ADMINISTRATIVNI_Modul
         #region Post
         private async void GetPosts()
         {
+            selectedUser = -1;
             flp_Post_Container.Controls.Clear();
             posts = await repoFactory.postRepository.GetPostsAsync();
             LoadPosts(posts);
@@ -157,6 +155,7 @@ namespace ADMINISTRATIVNI_Modul
         #region User
         private async void GetUsers()
         {
+            selectedPost = -1;
             flp_User_Container.Controls.Clear();
             users = await repoFactory.userRepository.GetUsersAsync();
             LoadUsers(users);

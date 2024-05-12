@@ -81,7 +81,7 @@ namespace API.Controllers
         }
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutAdmin(int id, PostAdmin admin)
+        public async Task<IActionResult> PutAdmin(int id, PutAdmin admin)
         {
             var existingAdmin = await _dbContext.Admin.FindAsync(id);
 
@@ -90,17 +90,12 @@ namespace API.Controllers
                 return NotFound("Admin not found.");
             }
 
-            string salt = Encryption.CreateSalt(8);
-            string password = admin.PwdHash;
-
             existingAdmin.FirstName = admin.FirstName;
             existingAdmin.LastName = admin.LastName;
             existingAdmin.Email = admin.Email;
             existingAdmin.Username = admin.Username;
             existingAdmin.UserProfilePictureBase64 = admin.UserProfilePictureBase64;
             existingAdmin.PhoneNumber = admin.PhoneNumber;
-            existingAdmin.PwdSalt = salt;
-            existingAdmin.PwdHash = Encryption.GenerateHash(password, salt);
 
             try
             {
@@ -120,10 +115,6 @@ namespace API.Controllers
 
             return NoContent();
         }
-
-      
-
-
        
         [HttpDelete("{id}")]
         public async Task<ActionResult<Admin>> DeleteAdmin(int id)

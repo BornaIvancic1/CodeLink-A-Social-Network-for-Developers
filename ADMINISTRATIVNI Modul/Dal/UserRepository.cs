@@ -103,7 +103,6 @@ namespace ADMINISTRATIVNI_Modul.Dal
                     username = user.Username,
                     knownTechnologies = new List<Technology>(),
                     userProfilePictureBase64 = user.UserProfilePictureBase64,
-                    password = user.PwdHash
                 };
 
                 string userJson = JsonSerializer.Serialize(userPut);

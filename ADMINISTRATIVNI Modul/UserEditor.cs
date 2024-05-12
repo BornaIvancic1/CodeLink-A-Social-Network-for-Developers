@@ -35,10 +35,10 @@ namespace ADMINISTRATIVNI_Modul
             this.repoFactory = repoFactory;
             this.selectedAdmin = selectedAdmin;
             GetUser(userID, selectedAdmin);
-            //lbl_Password.Enabled = false;
-            //lbl_Password1.Enabled = false;
-            //tb_PasswordVerify.Enabled = false;
-            //tb_password.Enabled = false;
+            lbl_Password.Enabled = false;
+            lbl_Password1.Enabled = false;
+            tb_PasswordVerify.Enabled = false;
+            tb_password.Enabled = false;
         }
 
         private void RenameButton()
@@ -166,7 +166,10 @@ namespace ADMINISTRATIVNI_Modul
             user.Email = tb_Email.Text;
             user.PhoneNumber = tb_Phone.Text;
             user.Username = tb_Username.Text;
-            user.PwdHash = tb_password.Text;
+            if (tb_password.Enabled==true)
+            {
+                user.PwdHash = tb_password.Text;
+            }     
             List<Technology> techs = new List<Technology>();
             foreach (TechnologyItem tech in flp_Technologies.Controls)
             {

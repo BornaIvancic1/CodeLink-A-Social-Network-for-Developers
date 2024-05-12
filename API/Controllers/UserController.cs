@@ -98,7 +98,7 @@ namespace API.Controllers
         }
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutUser(int id, PostUser user)
+        public async Task<IActionResult> PutUser(int id, PutUser user)
         {
             var existingUser = await _dbContext.User
                 .Include(u => u.KnownTechnologies) 
@@ -109,22 +109,15 @@ namespace API.Controllers
                 return NotFound("User not found.");
             }
 
-            string salt = Encryption.CreateSalt(8);
-            string password = user.PwdHash;
-
             existingUser.FirstName = user.FirstName;
             existingUser.LastName = user.LastName;
             existingUser.Email = user.Email;
             existingUser.Username = user.Username;
             existingUser.UserProfilePictureBase64 = user.UserProfilePictureBase64;
             existingUser.PhoneNumber = user.PhoneNumber;
-            existingUser.PwdSalt = salt;
-            existingUser.PwdHash = Encryption.GenerateHash(password, salt);
-
           
             existingUser.KnownTechnologies.Clear();
 
-       
             foreach (var techName in user.KnownTechnologies)
             {
                 var existingTech = await _dbContext.Technology.FirstOrDefaultAsync(t => t.Name == techName.Name);

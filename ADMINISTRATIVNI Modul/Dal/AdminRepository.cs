@@ -104,8 +104,7 @@ namespace ADMINISTRATIVNI_Modul.Dal
                     email = admin.Email,
                     phoneNumber = admin.PhoneNumber,
                     username = admin.Username,
-                    userProfilePictureBase64 = admin.UserProfilePictureBase64,
-                    password = admin.PwdHash
+                    userProfilePictureBase64 = admin.UserProfilePictureBase64
                 };
 
                 string userJson = JsonSerializer.Serialize(adminPut);
