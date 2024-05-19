@@ -1,5 +1,7 @@
-﻿
-<h1 class="mb-4" style="font-size: 36px; text-transform: uppercase; letter-spacing: 2px; border-bottom: 2px solid #0066CC; padding-bottom: 10px; margin-top:150px;">
+﻿<link rel="stylesheet" href="~/css/post.css" asp-append-version="true" />
+
+
+<h1 class="mb-4 pind">
     Posts <a asp-controller="Post" asp-action="Create" class="btn btn-primary newposss">Create New Post</a>
 
 </h1>
@@ -25,68 +27,3 @@
 
 
 
-<style>
-    .newposss{
-        margin-left:70px;
-        border-radius:30px;
-        background-color: rgba(255, 255, 255, 0.23);
-        border:none;
-        text-shadow: 0 0 10px rgb(0,0,0,0.7) !important;
-      
-    }
-
-
-    .container-fluid.data {
-        background: rgba(255, 255, 255, 0.3);
-        padding-top: 40px;
-        margin-bottom: 20px;
-        border-radius: 50px;
-        border: none;
-        box-shadow: 0 0 40px rgb(0,0,0,0.3);
-    }
-
-    img {
-        box-shadow: 0 0 20px rgb(0,0,0,0.7);
-        transition: transform 0.3s ease;
-    }
-
-    td, tr {
-        text-align: center;
-        padding-top: 50px !important;
-        padding-bottom: 50px !important;
-        border: none;
-    }
-
-    .post-link {
-        display: block;
-        text-decoration: none;
-        color: inherit;
-    }
-
-    .post-title {
-        margin-top: 10px;
-        font-size: 25px !important;
-        font-weight: 700;
-    }
-
-    .post-content {
-        margin-top: 5px;
-    }
-
-    .post-link:hover .post-content .post-title {
-        color: #00917C;
-    }
-
-    img:hover {
-        transform: scale(1.05);
-    }
-
-    .card {
-        background: none !important;
-        border: none !important;
-    }
-
-    .img-fluid {
-        width: 70%;
-    }
-</style>

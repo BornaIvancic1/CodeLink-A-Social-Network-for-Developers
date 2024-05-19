@@ -1,6 +1,6 @@
 ﻿<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/vibrant.js/2.1.0/Vibrant.min.js"></script>
-
+<link rel="stylesheet" href="~/css/postDetails.css" asp-append-version="true" />
 @{
     ViewData["Title"] = "Post Details Page";
 }
@@ -70,136 +70,7 @@
 </div>
 
 
-<style>
-    .update-post{
-        border-radius:30px;
-        margin:10px;
-        background-color:blue;
-        color:white;
-        border:none;
-        font-weight:600;
-        box-shadow: 0 0 5px black;
-        transition: box-shadow 0.5s ease;
-    }
 
-        .update-post:hover{
-            box-shadow: 0 0 20px blue;
-        }
-    .delete-post {
-        border-radius:30px;
-        margin:10px;
-        background-color:red;
-        color:white;
-        border:none;
-        font-weight: 600;
-        box-shadow: 0 0 5px black;
-        transition: box-shadow 0.5s ease;
-    }
-
-        .delete-post:hover {
-        box-shadow: 0 0 20px red;
-    }
-
-    .delete-
-    .play {
-        vertical-align: middle;
-        font-size: 55px;
-    }
-
-    .Arrow {
-        vertical-align: middle;
-        font-size: 40px;
-    }
-
-    body {
-        background-color: #0a0a0a;
-        color: white;
-    }
-
-    .post-header {
-        margin-top:150px;
-        color: #0066CC;
-        padding: 20px;
-        margin-bottom: 20px;
-        border-radius: 50px;
-    }
-
-    .post-details-container {
-        background-color: #181818;
-        padding: 40px;
-        border-radius: 50px;
-        box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
-        display: flex;
-        flex-direction: column;
-        align-items: center;
- color:white !important;
-    }
-
-    .post-thumbnail img {
-        max-width: 500px;
-        max-height: 500px;
-        border-radius: 10px;
-        box-shadow: 0 0 90px rgba(255, 255, 0, 0.4);
-        ;
-        transition: box-shadow 0.5s ease;
-    }
-
-    .post-thumbnail:hover img {
-        box-shadow: 0 0 90px yellow;
-    }
-
-    .post-info {
-        margin: 20px 0;
-        color: white;
-    }
-
-        .post-info .text-blue {
-            color: #0066CC;
-        }
-
-    .play-button button {
-        background-color: #0066CC;
-        border-color: #0066CC;
-        border-radius: 50px;
-    }
-
-    .btn-danger {
-        background-color: rgba(0, 0, 0, 0.4);
-        border: none;
-        text-shadow: 0 0 30px rgb(0, 0, 0, 0.9) !important;
-        box-shadow: 0 0 30px rgb(0, 0, 0, 0.9) !important;
-        border-radius: 50px;
-        transition: box-shadow 0.5s ease, text-shadow 0.5s ease;
-    }
-
-        .btn-danger:hover {
-            text-shadow: 0 0 20px red !important;
-            box-shadow: 0 0 30px red !important;
-        }
-
-    .btn-blue {
-        background-color: #0066CC;
-        border: none;
-        text-shadow: 0 0 30px yellow !important;
-        box-shadow: 0 0 30px yellow !important;
-        transition: box-shadow 0.5s ease, text-shadow 0.5s ease;
-    }
-
-        .btn-blue:hover {
-            background-color: #004488;
-            text-shadow: 0 0 40px #004488 !important;
-            box-shadow: 0 0 50px #004488 !important;
-        }
-
-    input {
-        background-color: rgb(255,255,255,0.8) !important;
-        border: none !important;
-        padding:10px;
-      margin:10px;
-        font-size:20px;
-    }
-
-</style>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 <script>
@@ -241,7 +112,7 @@
                 var base64String = event.target.result.split(',')[1];
                 formData.append('PostImage', base64String);
 
-            
+
                 $.ajax({
                     url: 'https://localhost:7156/api/Post/UserPostUpdate',
                     type: 'PUT',
@@ -260,10 +131,10 @@
                     }
                 });
             }
-            reader.readAsDataURL(file); 
+            reader.readAsDataURL(file);
         } else {
             formData.append('PostImage', 'None');
-          
+
             $.ajax({
                 url: 'https://localhost:7156/api/Post/UserPostUpdate',
                 type: 'PUT',
@@ -284,7 +155,7 @@
         }
     });
 
-  
+
 
     $('.delete-post').click(function () {
         var postId = '@Model.Id';
@@ -297,16 +168,15 @@
                 window.location.href = '/Post/Index';
             },
             error: function (xhr, status, error) {
-             
+
                 console.error('Error:', error);
                 console.error('Status:', status);
                 console.error('Response Text:', xhr.responseText);
 
-          
+
                 alert('Error occurred while processing your request. Please try again later.');
             }
 
         });
     });
 </script>
-

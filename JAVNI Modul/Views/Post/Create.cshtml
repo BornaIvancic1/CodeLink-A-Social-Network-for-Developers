@@ -3,8 +3,9 @@
 @{
     var userId = ViewBag.UserId as string;
 }
+<link rel="stylesheet" href="~/css/postCreate.css" asp-append-version="true" />
 
-<h1 style="margin-top:150px;">Create Post</h1>
+<h1 id="mt150px">Create Post</h1>
 <form id="postForm" class="mt-5">
     <div class="mb-3">
         <label for="Title" class="form-label">Title</label>
@@ -27,23 +28,9 @@
     <button type="button" id="submitBtn" class="btn btn-primary">Submit</button>
 </form>
 
-<style>
-    input, textarea, button {
-        border-radius: 30px !important;
-    }
 
-    input, textarea {
-        background-color: rgb(255,255,255,0.35) !important;
-        border: none !important;
-    }
-
-    textarea {
-        box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
-    }
-</style>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
 <script>
     $(document).ready(function () {
         $('#submitBtn').click(function () {
@@ -57,7 +44,7 @@
                 var file = fileInput.files[0];
                 var reader = new FileReader();
                 reader.onload = function (event) {
-                   
+
                     var base64String = event.target.result.split(',')[1];
                     formData.append('PostImage', base64String);
 
@@ -66,7 +53,7 @@
                         url: 'https://localhost:7156/api/Post/UserPost',
                         data: formData,
                         processData: false,
-                        contentType: false, 
+                        contentType: false,
                         success: function (result) {
                             alert('Post created successfully!');
                             window.location.href = '/Post/Index';
@@ -84,4 +71,3 @@
         });
     });
 </script>
-
