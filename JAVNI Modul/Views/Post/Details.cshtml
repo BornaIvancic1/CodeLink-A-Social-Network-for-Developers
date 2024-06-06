@@ -96,8 +96,8 @@
     $('.update-post').click(function () {
         var formData = new FormData();
         var postId = '@Model.Id';
-        var title = encodeURIComponent($('#post-title').val());
-        var description = encodeURIComponent($('#post-description').val());
+        var title = $('#post-title').val();
+        var description = $('#post-description').val();
 
         formData.append('Id', postId);
         formData.append('title', title);
