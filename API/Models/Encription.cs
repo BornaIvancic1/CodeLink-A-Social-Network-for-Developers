@@ -1,11 +1,14 @@
-﻿using System;
+﻿using API.Models;
+using System;
 using System.Security.Cryptography;
 using System.Text;
 
 namespace RWA_Web_API_.Models
 {
-    public class Encryption
+    public class Encryption 
     {
+     
+
         public static string CreateSalt(int size)
         {
             byte[] buff = new byte[size];
